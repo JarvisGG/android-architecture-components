@@ -47,4 +47,13 @@
     <string name="cd_home">Home</string>
     <string name="cd_list">List</string>
     <string name="cd_form">Form</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="register">Register</string>
+    <string name="board">Board</string>
+    <string name="home">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="demo1">demo1</string>
 </resources>

@@ -20,15 +20,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.android.navigationadvancedsample.sheet.navigator.BottomSheetFragmentNavigator
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
  * An activity that inflates a layout that has a [BottomNavigationView].
@@ -49,6 +54,20 @@ class MainFragment : Fragment() {
         if (savedInstanceState == null) {
             setupBottomNavigationBar(view)
         }
+        setUpDrawerToggle()
+        val drawerNavController = findNavController()
+        NavigationUI.setupWithNavController(navView, drawerNavController)
+    }
+
+    private fun setUpDrawerToggle() {
+        val mDrawerToggle = object : ActionBarDrawerToggle(
+                requireActivity(), navDrawer, null,
+                R.string.open, R.string.close
+        ) {
+
+        }
+        navDrawer.addDrawerListener(mDrawerToggle)
+        mDrawerToggle.syncState()
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
@@ -72,9 +91,9 @@ class MainFragment : Fragment() {
         )
 
         // Whenever the selected controller changes, setup the action bar.
-//        controller.observe(this, Observer { navController ->
+        controller.observe(this, Observer { navController ->
 //            setupActionBarWithNavController(navController)
-//        })
+        })
         currentNavController = controller
     }
 }

@@ -31,6 +31,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -54,6 +59,7 @@ dependencies {
     implementation deps.navigation.ui_ktx
 
     // Android Testing Support Library's runner and rules
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
     androidTestImplementation deps.room.testing

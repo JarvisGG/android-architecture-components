@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/titleScreen"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/leaderboard"
+        android:icon="@drawable/ic_page"
+        android:title="@string/board" />
+
+    <item
+        android:id="@+id/register"
+        android:icon="@drawable/ic_page"
+        android:title="@string/register" />
+
+</menu>
