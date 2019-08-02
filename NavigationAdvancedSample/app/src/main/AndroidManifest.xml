@@ -19,6 +19,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.android.navigationadvancedsample">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,9 +38,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
 
+            <nav-graph android:value="@navigation/home" />
         </activity>
     </application>
 

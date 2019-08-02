@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_title_to_about"
-            app:destination="@id/aboutScreen" />
+            app:destination="@id/aboutScreen"/>
         <action
             android:id="@+id/action_titleScreen_to_demo1Dialog"
             app:destination="@id/demo1Dialog" />
@@ -83,6 +83,10 @@
         app:popUpToInclusive="true"
         tools:layout="@layout/dialog_demo1">
 
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="android-app://androidx.navigation.app/dialog"
+            android:autoVerify="true" />
     </dialog>
 
 

@@ -25,6 +25,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.navigationadvancedsample.R
 
@@ -88,11 +89,11 @@ class MyAdapter(private val myDataset: Array<String>) :
                 .setImageResource(listOfAvatars[position % listOfAvatars.size])
 
         holder.item.setOnClickListener {
-            val bundle = bundleOf(USERNAME_KEY to myDataset[position])
-
-            holder.item.findNavController().navigate(
-                    R.id.action_leaderboard_to_userProfile,
-                bundle)
+//            val bundle = bundleOf(USERNAME_KEY to myDataset[position])
+            val extras = FragmentNavigatorExtras(
+                    holder.item.findViewById<ImageView>(R.id.user_avatar_image) to "header_image",
+                    holder.item.findViewById<TextView>(R.id.user_name_text) to "header_title")
+            holder.item.findNavController().navigate(LeaderboardDirections.actionLeaderboardToUserProfile(myDataset[position]), extras)
         }
     }
 
