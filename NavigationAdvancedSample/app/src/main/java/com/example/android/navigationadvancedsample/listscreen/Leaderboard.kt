@@ -90,10 +90,10 @@ class MyAdapter(private val myDataset: Array<String>) :
 
         holder.item.setOnClickListener {
 //            val bundle = bundleOf(USERNAME_KEY to myDataset[position])
+            holder.item.findViewById<ImageView>(R.id.user_avatar_image).transitionName = myDataset[position]
             val extras = FragmentNavigatorExtras(
-                    holder.item.findViewById<ImageView>(R.id.user_avatar_image) to "header_image",
-                    holder.item.findViewById<TextView>(R.id.user_name_text) to "header_title")
-            holder.item.findNavController().navigate(LeaderboardDirections.actionLeaderboardToUserProfile(myDataset[position]), extras)
+                    holder.item.findViewById<ImageView>(R.id.user_avatar_image) to myDataset[position])
+            holder.item.findNavController().navigate(LeaderboardDirections.actionLeaderboardToUserProfile(myDataset[position], listOfAvatars[position % listOfAvatars.size]), extras)
         }
     }
 
@@ -102,6 +102,7 @@ class MyAdapter(private val myDataset: Array<String>) :
 
     companion object {
         const val USERNAME_KEY = "userName"
+        const val AVATAR = "avatar"
     }
 }
 

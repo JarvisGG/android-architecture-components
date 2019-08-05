@@ -35,7 +35,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:transitionName="item_avatar"
         android:background="@drawable/avatar_5_raster"
         app:srcCompat="@drawable/circle"
         tools:background="@tools:sample/avatars"

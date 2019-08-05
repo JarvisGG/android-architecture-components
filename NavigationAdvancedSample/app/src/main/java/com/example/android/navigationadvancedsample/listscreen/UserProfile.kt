@@ -20,9 +20,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionInflater
 import com.example.android.navigationadvancedsample.R
+import com.example.android.navigationadvancedsample.listscreen.MyAdapter.Companion.AVATAR
 import com.example.android.navigationadvancedsample.listscreen.MyAdapter.Companion.USERNAME_KEY
 
 
@@ -33,12 +38,24 @@ class UserProfile : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
         val view = inflater.inflate(R.layout.fragment_user_profile, container, false)
-
         val name = arguments?.getString(USERNAME_KEY) ?: "Ali Connors"
         view.findViewById<TextView>(R.id.profile_user_name).text = name
+        view.findViewById<ImageView>(R.id.profile_pic).apply {
+            transitionName = name
+            setImageResource(arguments!!.getInt(AVATAR))
+        }
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        postponeEnterTransition()
+        view.doOnPreDraw {
+            startPostponedEnterTransition()
+        }
     }
 }

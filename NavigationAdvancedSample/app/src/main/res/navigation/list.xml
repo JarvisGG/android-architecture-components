@@ -27,13 +27,14 @@
             android:name="com.example.android.navigationadvancedsample.listscreen.Leaderboard"
             android:label="@string/title_list"
             tools:layout="@layout/fragment_leaderboard">
+
         <action
             android:id="@+id/action_leaderboard_to_userProfile"
-            app:destination="@id/userProfile"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:destination="@id/userProfile" />
+            <!--app:enterAnim="@anim/slide_in_right"-->
+            <!--app:exitAnim="@anim/slide_out_left"-->
+            <!--app:popEnterAnim="@anim/slide_in_left"-->
+            <!--app:popExitAnim="@anim/slide_out_right"/>-->
     </fragment>
 
 
@@ -49,5 +50,9 @@
         <argument
             android:name="userName"
             app:argType="string"/>
+
+        <argument
+            android:name="avatar"
+            app:argType="integer"/>
     </fragment>
 </navigation>
